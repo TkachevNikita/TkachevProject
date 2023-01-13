@@ -9,17 +9,17 @@ def index(request):
 
 
 def demand(request):
-    data = Analytics.objects.filter(profession_name='web-разработчик')[0]
+    data = Analytics.objects.filter(name='web-разработчик')[0]
     return render(request, "demand.html", context={"graph": data.demand_graph.url, "table": str(data.demand_table)})
 
 
 def geography(request):
-    data = Analytics.objects.filter(profession_name='web-разработчик')[0]
+    data = Analytics.objects.filter(name='web-разработчик')[0]
     return render(request, "geography.html", context={"graph": data.geography_graph.url, "table": str(data.geography_table)})
 
 
 def skills(request):
-    data = Analytics.objects.filter(profession_name='web-разработчик')[0]
+    data = Analytics.objects.filter(name='web-разработчик')[0]
     return render(request, "skills.html", context={"graph": data.skills_graph.url, "table": str(data.skills_table)})
 
 
