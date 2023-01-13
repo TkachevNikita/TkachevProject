@@ -24,6 +24,20 @@
     <h1 class="title">Web-разработчик</h1>
 </header>
 <main>
+    <h2 class="subtitle">Последние вакансии</h2>
+    <ul class="vacancies-list">
+        {% for vacancy in vacancies_list %}
+    <ul class="vacancy">
+        <li class="name">{{ vacancy.name }}</li>
+        <li><b>Описание:</b> {{ vacancy.description }} <a class="view-next">...</a></li>
+        <li><b>Навыки:</b> {{ vacancy.key_skills }}</li>
+        <li><b>Компания:</b> {{ vacancy.employer }}</li>
+        <li><b>Оклад:</b> {{ vacancy.salary }}</li>
+        <li><b>Назване региона:</b> {{ vacancy.area_name }}</li>
+        <li><b>Дата публикации вакансии:</b> {{ vacancy.published_at }}</li>
+    </ul>
+    {% endfor %}
+    </ul>
 </main>
 <footer>
     <p>Ткачев Никита Олегович</p>
