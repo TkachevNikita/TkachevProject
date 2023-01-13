@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import requests
 import re
+from .models import Analytics
 
 # Create your views here.
 def index(request):
@@ -8,15 +9,18 @@ def index(request):
 
 
 def demand(request):
-    return render(request, "demand.html")
+    data = Analytics.objects.filter(profession_name='web-разработчик')[0]
+    return render(request, "demand.html", context={"graph": data.demand_graph.url, "table": str(data.demand_table)})
 
 
 def geography(request):
-    return render(request, "geography.html")
+    data = Analytics.objects.filter(profession_name='web-разработчик')[0]
+    return render(request, "geography.html", context={"graph": data.geography_graph.url, "table": str(data.geography_table)})
 
 
 def skills(request):
-    return render(request, "skills.html")
+    data = Analytics.objects.filter(profession_name='web-разработчик')[0]
+    return render(request, "skills.html", context={"graph": data.skills_graph.url, "table": str(data.skills_table)})
 
 
 def last_vacancies(request):
